@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1 class="h3 pt-4 mb-3 font-weight-normal">解题模式
+    <a href="/zuoti"> <button type="submit" class="btn btn-success">换题</button> </a>
+</h1>
+<form method="POST" action="#">
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% else %}
+        {% if solve == False %}
+        <div class="alert alert-danger" role="alert">
+            答案错误！
+        </div>
+        {% elif solve == True %}
+        <div class="alert alert-success" role="alert">
+            答案正确!
+        </div>
+        {% endif %}
+    {% endif %}
+    <p>四个数字分别为：
+    {% for num in nums %}
+        {{ num }}
+    {% endfor %}
+    <p>
+    请输入表达式：
+    <div class="form">
+        {% for num in nums %}
+        <input type="hidden" name="num{{ loop.index }}" value="{{ num }}">
+        {% endfor %}
+        <input name="ans" class="form-control" type="text" {% if ans %}value="{{ ans }}"{% endif %}>
+        <button type="submit" class="btn btn-primary">做题</button>
+    </div>
+</form>
+
+{% endblock %}

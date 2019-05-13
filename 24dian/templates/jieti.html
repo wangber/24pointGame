@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1 class="h3 pt-4 mb-3 font-weight-normal">解题模式</h1>
+<form method="POST" action="#">
+    <div class="form-row">
+        {% for item in ['一', '二', '三', '四'] %}
+        <div class="col">
+            <input type="number"
+                   class="form-control"
+                   name="num{{ loop.index }}"
+                   placeholder="请输入第{{ item }}个数字"
+                   step="1" min="1" max="9"
+                   {% if data %}value="{{ data[loop.index-1] }}"{% endif %}>
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">解题</button>
+    </div>
+</form>
+
+{% if solv %}
+<h1 class="h3 pt-4 mb-3 font-weight-normal">解题结果</h1>
+<ul class="list-group">
+    {% for sol in solv %}
+    <li class="list-group-item list-group-item-action">{{ sol }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1 class="h3 pt-4 mb-3 font-weight-normal">请选择游戏模式</h1>
+<div class="row">
+<div class="col card text-center pt-3" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">解题模式</h5>
+    <p class="card-text">输入4个1-9的数字，得到答案</p>
+    <a href="/jieti" class="btn btn-primary">解题</a>
+  </div>
+</div>
+<div class="col card text-center pt-3" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">做题模式</h5>
+        <p class="card-text">随机得到4个1-9的数字，进行做题</p>
+        <a href="/zuoti" class="btn btn-primary">做题</a>
+    </div>
+</div>
+</div>
+
+<h2 style = "text-align:center;font-family: Verdana, Geneva, Tahoma, sans-serif">
+  “算24点”的游戏内容</h2>
+  <P style="text-indent:2em;">一副牌中抽去大小王剩下52张，（如果初练也可只用1～10这40张牌）任意抽取4张牌（称牌组），用加、减、乘、除（可
+  加括号）把牌面上的数算成24。每张牌必须用一次且只能用一次，如抽出的牌是3、8、8、9，那么算式为（9—8）×8×3或
+  （9—8÷8）×3等。
+  “算24点”作为一种扑克牌智力游戏，还应注意计算中的技巧问题。计算时，我们不可能把牌面上的4个数的不同组合形式——去试，
+  更不能瞎碰乱凑。这里向大家介绍几种常用的、便于学习掌握的方法：</p>
+
+
+{% endblock %}
